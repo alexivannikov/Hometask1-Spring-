@@ -6,12 +6,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.stereotype.Component;
 import root.interfaces.Process;
 
+import javax.cache.annotation.CacheResult;
+
 @Component("externalInfoProcessClass")
 @Lazy
+@Scope("prototype")
+@CacheResult
 public class ExternalInfoProcess implements Process {
     //@Value("${id}")
     private static final Logger logger = LoggerFactory.getLogger(ExternalInfoProcess.class);
@@ -25,6 +30,7 @@ public class ExternalInfoProcess implements Process {
         this.idNotProcess = idNotProcess;
     }
 
+    @CacheResult
     public boolean run(Integer value){
         if(value == this.idNotProcess){
             logger.info("External info id is equal to idNotProcess. Returned false");

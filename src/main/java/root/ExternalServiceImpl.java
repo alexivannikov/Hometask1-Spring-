@@ -2,6 +2,7 @@ package root;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import root.interfaces.ExternalService;
 
@@ -10,6 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component("externalServiceImplClass")
+@Scope("prototype")
+@CacheResult
 public class ExternalServiceImpl implements ExternalService {
     private static final Logger logger = LoggerFactory.getLogger(ExternalServiceImpl.class);
 

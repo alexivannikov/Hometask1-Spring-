@@ -20,6 +20,10 @@ public class Main {
         flow.run(3);
         flow.run(4);
 
+        BeanFactoryPostProcessorSample b = new BeanFactoryPostProcessorSample();
+
+        b.postProcessBeanFactory(applicationContext.getBeanFactory());
+
         externalService.clearTestMap();
         applicationContext.close();
     }
