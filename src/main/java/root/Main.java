@@ -11,14 +11,16 @@ public class Main {
     public static void main(String [] args){
         ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(Main.class);
 
-        ExternalServiceImpl bean = applicationContext.getBean(ExternalServiceImpl.class);
+        ExternalServiceImpl externalService = applicationContext.getBean(ExternalServiceImpl.class);
+        ExternalInfoProcess externalInfoProcess = applicationContext.getBean(ExternalInfoProcess.class);
+        Flow flow = applicationContext.getBean(Flow.class);
 
-        bean.getExternalInfo(1);
-        bean.clearTestMap();
+        flow.run(1);
+        flow.run(2);
+        flow.run(3);
+        flow.run(4);
 
-        ExternalInfoProcess newBean = applicationContext.getBean(ExternalInfoProcess.class);
-
-        new ExternalInfoProcess().run();
+        externalService.clearTestMap();
         applicationContext.close();
     }
 }

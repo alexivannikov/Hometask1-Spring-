@@ -3,5 +3,5 @@ package root.interfaces;
 import root.ExternalInfo;
 
 public interface Process {
-    boolean run();
+    boolean run(Integer value);
 }
