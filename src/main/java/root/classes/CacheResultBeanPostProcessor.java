@@ -13,7 +13,7 @@ import javax.cache.annotation.CacheResult;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
 
-@Component
+@Component("cacheResultBeanPostProcessor")
 public class CacheResultBeanPostProcessor implements BeanPostProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(CacheResultBeanPostProcessor.class);
 

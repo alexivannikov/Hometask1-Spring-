@@ -22,11 +22,10 @@ public class Main {
         flow.run(3);
         flow.run(4);
 
-        BeanFactoryPostProcessorSample b = new BeanFactoryPostProcessorSample();
+        BeanFactoryPostProcessorSample b = applicationContext.getBean(BeanFactoryPostProcessorSample.class);
+        CacheResultBeanPostProcessor c = applicationContext.getBean(CacheResultBeanPostProcessor.class);
 
         b.postProcessBeanFactory(applicationContext.getBeanFactory());
-
-        CacheResultBeanPostProcessor c = new CacheResultBeanPostProcessor();
 
         String [] beanNames = applicationContext.getBeanFactory().getBeanDefinitionNames();
 

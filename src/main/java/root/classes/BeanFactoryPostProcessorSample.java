@@ -6,10 +6,12 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.stereotype.Component;
 
 import javax.cache.annotation.CacheResult;
 import java.lang.reflect.Method;
 
+@Component("beanFactoryPostProcessorSample")
 public class BeanFactoryPostProcessorSample implements BeanFactoryPostProcessor {
     private static Logger LOGGER = LoggerFactory.getLogger(BeanFactoryPostProcessorSample.class);
 
