@@ -1,13 +1,9 @@
-package root;
+package root.classes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.stereotype.Component;
 import root.interfaces.Process;
 
@@ -19,7 +15,7 @@ import javax.cache.annotation.CacheResult;
 @CacheResult
 public class ExternalInfoProcess implements Process {
     //@Value("${id}")
-    private static final Logger logger = LoggerFactory.getLogger(ExternalInfoProcess.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ExternalInfoProcess.class);
     private Integer idNotProcess;
 
     public ExternalInfoProcess() {
@@ -33,12 +29,12 @@ public class ExternalInfoProcess implements Process {
     @CacheResult
     public boolean run(Integer value){
         if(value == this.idNotProcess){
-            logger.info("External info id is equal to idNotProcess. Returned false");
+            LOGGER.info("External info id is equal to idNotProcess. Returned false");
 
             return false;
         }
         else{
-            logger.info("External info id is not equal to idNotProcess. Returned true");
+            LOGGER.info("External info id is not equal to idNotProcess. Returned true");
 
             return true;
         }

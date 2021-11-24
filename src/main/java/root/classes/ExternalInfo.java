@@ -1,4 +1,4 @@
-package root;
+package root.classes;
 
 public class ExternalInfo {
     private Integer id;

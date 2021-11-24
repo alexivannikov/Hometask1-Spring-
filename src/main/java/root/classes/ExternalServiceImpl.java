@@ -1,4 +1,4 @@
-package root;
+package root.classes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ import java.util.Map;
 @Scope("prototype")
 @CacheResult
 public class ExternalServiceImpl implements ExternalService {
-    private static final Logger logger = LoggerFactory.getLogger(ExternalServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ExternalServiceImpl.class);
 
     private Map<Integer, ExternalInfo> testMap = new HashMap<>();
 
@@ -27,7 +27,7 @@ public class ExternalServiceImpl implements ExternalService {
 
     @CacheResult
     public ExternalInfo getExternalInfo(Integer id){
-        logger.info("Method getExternalInfo called");
+        LOGGER.info("Method getExternalInfo called");
 
         return testMap.get(id);
     }
@@ -39,6 +39,6 @@ public class ExternalServiceImpl implements ExternalService {
     public void clearTestMap(){
         this.testMap.clear();
 
-        logger.info("Test map cleared");
+        LOGGER.info("Test map cleared");
     }
 }

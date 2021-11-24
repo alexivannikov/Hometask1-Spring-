@@ -1,4 +1,4 @@
-package root;
+package root.classes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,7 @@ import root.interfaces.Process;
 
 @Component
 public class Flow {
-    private static Logger logger = LoggerFactory.getLogger(Flow.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(Flow.class);
 
     private ExternalService externalService;
     private Process process;
@@ -27,7 +27,7 @@ public class Flow {
             process.run(id);
         }
         else{
-            logger.info(String.valueOf(externalInfo.getClass()));
+            LOGGER.info(String.valueOf(externalInfo.getClass()));
         }
     }
     
