@@ -14,7 +14,6 @@ import root.interfaces.Process;
 @ComponentScan
 @PropertySource("classpath:application.properties")
 public class Main {
-
     public static void main(String [] args){
         ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(Main.class);
 
@@ -37,10 +36,8 @@ public class Main {
             Object bean = applicationContext.getBean(beanName);
 
             c.postProcessAfterInitialization(bean, beanName);
-
         }
 
-        //externalService.clearTestMap();
         applicationContext.close();
     }
 }

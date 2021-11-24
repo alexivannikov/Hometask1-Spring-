@@ -31,9 +31,4 @@ public class Flow {
             LOGGER.info(String.valueOf(externalInfo.getClass()));
         }
     }
-
-    public void clear(){
-        
-    }
-    
 }

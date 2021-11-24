@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import root.interfaces.ExternalService;
 
+import javax.annotation.PreDestroy;
 import javax.cache.annotation.CacheResult;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +20,6 @@ public class ExternalServiceImpl implements ExternalService {
 
     private Map<Integer, ExternalInfo> testMap = new HashMap<>();
 
-    @Autowired
     public ExternalServiceImpl(){
         this.testMap.put(1, new ExternalInfo(1, null));
         this.testMap.put(2, new ExternalInfo(2, "hashinfo"));
@@ -38,6 +38,7 @@ public class ExternalServiceImpl implements ExternalService {
         return this.testMap;
     }
 
+    @PreDestroy
     public void clearTestMap(){
         this.testMap.clear();
 
