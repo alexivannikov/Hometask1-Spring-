@@ -1,19 +1,23 @@
 package root;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import root.classes.*;
+import root.interfaces.*;
+import root.interfaces.Process;
 
 @ComponentScan
 @PropertySource("classpath:application.properties")
 public class Main {
+
     public static void main(String [] args){
         ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(Main.class);
 
-        ExternalServiceImpl externalService = applicationContext.getBean(ExternalServiceImpl.class);
-        ExternalInfoProcess externalInfoProcess = applicationContext.getBean(ExternalInfoProcess.class);
         Flow flow = applicationContext.getBean(Flow.class);
 
         flow.run(1);
@@ -22,8 +26,8 @@ public class Main {
         flow.run(3);
         flow.run(4);
 
-        BeanFactoryPostProcessorSample b = applicationContext.getBean(BeanFactoryPostProcessorSample.class);
-        CacheResultBeanPostProcessor c = applicationContext.getBean(CacheResultBeanPostProcessor.class);
+        BeanFactoryPostProcessor b = applicationContext.getBean(BeanFactoryPostProcessorSample.class);
+        BeanPostProcessor c = applicationContext.getBean(CacheResultBeanPostProcessor.class);
 
         b.postProcessBeanFactory(applicationContext.getBeanFactory());
 
@@ -36,7 +40,7 @@ public class Main {
 
         }
 
-        externalService.clearTestMap();
+        //externalService.clearTestMap();
         applicationContext.close();
     }
 }

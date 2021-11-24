@@ -11,6 +11,7 @@ import root.interfaces.Process;
 public class Flow {
     private static Logger LOGGER = LoggerFactory.getLogger(Flow.class);
 
+    @Autowired
     private ExternalService externalService;
     private Process process;
 
@@ -29,6 +30,10 @@ public class Flow {
         else{
             LOGGER.info(String.valueOf(externalInfo.getClass()));
         }
+    }
+
+    public void clear(){
+        
     }
     
 }

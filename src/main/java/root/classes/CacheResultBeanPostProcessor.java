@@ -21,7 +21,6 @@ public class CacheResultBeanPostProcessor implements BeanPostProcessor {
         return bean;
     }
 
-    @SneakyThrows
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException{
         Method[] methods = bean.getClass().getDeclaredMethods();
 
@@ -35,6 +34,8 @@ public class CacheResultBeanPostProcessor implements BeanPostProcessor {
 
                 /*CacheResultMethodInterceptor - это Advice. В нем содержится логика кеширования*/
                 proxyFactory.addAdvice(new CacheResultMethodInterceptor());
+
+                return proxyFactory.getProxy();
             }
         }
 

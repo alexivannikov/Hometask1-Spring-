@@ -34,7 +34,7 @@ public class CacheResultMethodInterceptor implements MethodInterceptor {
             }
         }
 
-        if(!isAnnotationMethod){
+        if(isAnnotationMethod){
             LOGGER.warn("Method " + method.getName() + " has annotation @CacheResult");
 
             Map <MethodArgs, Object> methodArgsObjectMap = CACHE.get(method.getName());

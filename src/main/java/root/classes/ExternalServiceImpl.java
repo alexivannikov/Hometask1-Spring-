@@ -2,6 +2,7 @@ package root.classes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import root.interfaces.ExternalService;
@@ -18,6 +19,7 @@ public class ExternalServiceImpl implements ExternalService {
 
     private Map<Integer, ExternalInfo> testMap = new HashMap<>();
 
+    @Autowired
     public ExternalServiceImpl(){
         this.testMap.put(1, new ExternalInfo(1, null));
         this.testMap.put(2, new ExternalInfo(2, "hashinfo"));
