@@ -13,8 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component("externalServiceImplClass")
-@Scope("prototype")
-@CacheResult
 public class ExternalServiceImpl implements ExternalService {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExternalServiceImpl.class);
 

@@ -26,7 +26,6 @@ public class ExternalInfoProcess implements Process {
         this.idNotProcess = idNotProcess;
     }
 
-    @CacheResult
     public boolean run(Integer value){
         if(value == this.idNotProcess){
             LOGGER.info("External info id is equal to idNotProcess. Returned false");
