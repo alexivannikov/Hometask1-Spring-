@@ -24,15 +24,14 @@ public class CacheResultBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException{
         Method[] methods = bean.getClass().getDeclaredMethods();
 
-        LOGGER.info(beanName);
+        LOGGER.info("CacheResultBeanPostProcessor log: bean " + beanName);
 
         for(Method method: methods){
             if(method.isAnnotationPresent(CacheResult.class)){
-                LOGGER.warn("Bean " + beanName + " has annotation @CacheResult on method " + method.getName());
+                LOGGER.warn("CacheResultBeanPostProcessor log: bean " + beanName + " has annotation @CacheResult on method " + method.getName());
 
                 ProxyFactory proxyFactory = new ProxyFactory(bean);
 
-                /*CacheResultMethodInterceptor - это Advice. В нем содержится логика кеширования*/
                 proxyFactory.addAdvice(new CacheResultMethodInterceptor());
 
                 return proxyFactory.getProxy();
