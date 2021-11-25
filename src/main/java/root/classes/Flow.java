@@ -11,7 +11,6 @@ import root.interfaces.Process;
 public class Flow {
     private static Logger LOGGER = LoggerFactory.getLogger(Flow.class);
 
-    @Autowired
     private ExternalService externalService;
     private Process process;
 

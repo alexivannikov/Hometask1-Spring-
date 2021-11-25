@@ -2,6 +2,7 @@ package root.classes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -14,8 +15,8 @@ import javax.cache.annotation.CacheResult;
 @Scope("prototype")
 @CacheResult
 public class ExternalInfoProcess implements Process {
-    //@Value("${id}")
     private static final Logger LOGGER = LoggerFactory.getLogger(ExternalInfoProcess.class);
+    @Value("${id}")
     private Integer idNotProcess;
 
     public ExternalInfoProcess() {

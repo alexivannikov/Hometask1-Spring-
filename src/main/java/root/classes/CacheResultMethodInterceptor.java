@@ -18,6 +18,7 @@ public class CacheResultMethodInterceptor implements MethodInterceptor {
 
     private static final Map <String, Map<MethodArgs, Object>> CACHE = new ConcurrentHashMap<>();
 
+
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {
         Method method = methodInvocation.getMethod();
         boolean isAnnotationMethod = method.isAnnotationPresent(CacheResult.class); //Проверка, что метод помечен аннотацией @CacheResult
@@ -41,6 +42,7 @@ public class CacheResultMethodInterceptor implements MethodInterceptor {
 
             if(methodArgsObjectMap != null){
                 LOGGER.info("Method " + method.getName() + " has cache " + methodArgsObjectMap);
+                LOGGER.info("CACHE size++++++++++++++++++"  + CACHE.size());
 
                 MethodArgs methodArgs = getMethodArgs(methodInvocation.getArguments());
 

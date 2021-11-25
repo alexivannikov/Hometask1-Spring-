@@ -19,12 +19,6 @@ public class Main {
 
         Flow flow = applicationContext.getBean(Flow.class);
 
-        flow.run(1);
-        flow.run(2);
-        flow.run(2);
-        flow.run(3);
-        flow.run(4);
-
         BeanFactoryPostProcessor b = applicationContext.getBean(BeanFactoryPostProcessorSample.class);
         BeanPostProcessor c = applicationContext.getBean(CacheResultBeanPostProcessor.class);
 
@@ -37,6 +31,13 @@ public class Main {
 
             c.postProcessAfterInitialization(bean, beanName);
         }
+
+        flow.run(1);
+        flow.run(1);
+        flow.run(2);
+        flow.run(2);
+        flow.run(3);
+        flow.run(4);
 
         applicationContext.close();
     }
